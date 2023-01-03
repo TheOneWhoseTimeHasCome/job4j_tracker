@@ -17,8 +17,6 @@ public class TriangleTest {
         assertThat(rsl).isCloseTo(expected, offset(0.001));
     }
 
-    // Ќаписать тест расчЄта площади дл€ случа€,
-    // когда по заданным точкам треугольник не может быть построен (ожидаемое значение -1).
     @Test
     public void when00and40andMinus40ThenMinus1() {
         Point a = new Point(0, 0);
