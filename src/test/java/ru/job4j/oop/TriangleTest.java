@@ -1,0 +1,32 @@
+package ru.job4j.oop;
+
+import org.junit.jupiter.api.Test;
+
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.offset;
+
+public class TriangleTest {
+    @Test
+    public void when00and40and04Then8() {
+        Point a = new Point(0, 0);
+        Point b = new Point(4, 0);
+        Point c = new Point(0, 4);
+        Triangle triangle = new Triangle(a, b, c);
+        double rsl = triangle.area();
+        double expected = 8;
+        assertThat(rsl).isCloseTo(expected, offset(0.001));
+    }
+
+    // Ќаписать тест расчЄта площади дл€ случа€,
+    // когда по заданным точкам треугольник не может быть построен (ожидаемое значение -1).
+    @Test
+    public void when00and40andMinus40ThenMinus1() {
+        Point a = new Point(0, 0);
+        Point b = new Point(4, 0);
+        Point c = new Point(-4, 0);
+        Triangle triangle = new Triangle(a, b, c);
+        double rsl = triangle.area();
+        double expected = -1;
+        assertThat(rsl).isCloseTo(expected, offset(0.001));
+    }
+}
