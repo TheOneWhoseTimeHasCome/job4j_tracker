@@ -7,13 +7,24 @@ public class Library {
         Book book3 = new Book("ГП. Орден Феникса", 700);
         Book book4 = new Book("Эгоистичный ген", 1500);
         Book[] books = new Book[]{book1, book2, book3, book4};
-        Book.print(books);
+        for (int i = 0; i < books.length; i++) {
+            Book book = books[i];
+            System.out.println(book.getName() + " - " + book.getPages());
+        }
         Book tempBook = books[3];
         books[3] = books[0];
         books[0] = tempBook;
         System.out.println();
-        Book.print(books);
+        for (int i = 0; i < books.length; i++) {
+            Book book = books[i];
+            System.out.println(book.getName() + " - " + book.getPages());
+        }
         System.out.println();
-        Book.print(books, "Clean code");
+        for (int i = 0; i < books.length; i++) {
+            Book book = books[i];
+            if (book.getName().equals("Clean code")) {
+                System.out.println(book.getName() + " - " + book.getPages());
+            }
+        }
     }
 }

@@ -25,19 +25,4 @@ public class Book {
         this.pages = pages;
     }
 
-    public static void print(Book[] books) {
-        for (int i = 0; i < books.length; i++) {
-            Book book = books[i];
-            System.out.println(book.getName() + " - " + book.getPages());
-        }
-    }
-
-    public static void print(Book[] books, String name) {
-        for (int i = 0; i < books.length; i++) {
-            Book book = books[i];
-            if (books[i].name.equals("Clean code")) {
-                System.out.println(book.getName() + " - " + book.getPages());
-            }
-        }
-    }
 }
