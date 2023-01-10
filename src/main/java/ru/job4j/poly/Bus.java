@@ -1,6 +1,8 @@
 package ru.job4j.poly;
 
 public class Bus implements Transport {
+    private double fuelPrice = 40.10;
+
     @Override
     public void drive() {
         System.out.println("Едем.");
@@ -14,6 +16,6 @@ public class Bus implements Transport {
     @Override
     public double refuel(double fuel) {
         System.out.println("Заправлено " + fuel + " литров бензина.");
-        return fuel;
+        return fuel * fuelPrice;
     }
 }
