@@ -105,12 +105,8 @@ public class StartUITest {
                         + "0. Show all items" + ln
                         + "1. Exit Program" + ln
                         + "=== Show all items ===" + ln
-                        + "Item{id=" + item1.getId() + ", name='"
-                        + item1.getName() + "\', created="
-                        + item1.getCreated().format(DateTimeFormatter.ofPattern("dd-MMMM-EEEE-yyyy HH:mm:ss")) + '}' + ln
-                        + "Item{id=" + item2.getId() + ", name='"
-                        + item2.getName() + "\', created="
-                        + item2.getCreated().format(DateTimeFormatter.ofPattern("dd-MMMM-EEEE-yyyy HH:mm:ss")) + '}' + ln
+                        + item1 + ln
+                        + item2 + ln
                         + "Menu:" + ln
                         + "0. Show all items" + ln
                         + "1. Exit Program" + ln
@@ -161,7 +157,7 @@ public class StartUITest {
         tracker.add(item2);
         tracker.add(item3);
         Input in = new StubInput(
-                new String[]{"0", "3", "1"}
+                new String[]{"0", String.valueOf(item3.getId()), "1"}
         );
         UserAction[] actions = new UserAction[]{
                 new FindByIdAction(out),
