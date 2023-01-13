@@ -125,7 +125,7 @@ public class StartUITest {
         tracker.add(item2);
         tracker.add(item3);
         Input in = new StubInput(
-                new String[]{"0", "item2", "1"}
+                new String[]{"0", item2.getName(), "1"}
         );
         UserAction[] actions = new UserAction[]{
                 new FindByNameAction(out),
@@ -138,7 +138,7 @@ public class StartUITest {
                         + "0. Find items by name" + ln
                         + "1. Exit Program" + ln
                         + "=== Find items by name ===" + ln
-                        + item2.toString() + ln
+                        + item2 + ln
                         + "Menu:" + ln
                         + "0. Find items by name" + ln
                         + "1. Exit Program" + ln
@@ -170,7 +170,7 @@ public class StartUITest {
                         + "0. Find item by id" + ln
                         + "1. Exit Program" + ln
                         + "=== Find item by id ===" + ln
-                        + item3.toString() + ln
+                        + item3 + ln
                         + "Menu:" + ln
                         + "0. Find item by id" + ln
                         + "1. Exit Program" + ln
