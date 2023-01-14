@@ -11,9 +11,17 @@ public class StartUI {
         boolean run = true;
         while (run) {
             showMenu(actions);
-            int select = input.askInt("Select: ");
-            UserAction action = actions[select];
-            run = action.execute(input, tracker);
+            boolean invalid = true;
+            do {
+                try {
+                    int select = input.askInt("Select: ");
+                    UserAction action = actions[select];
+                    run = action.execute(input, tracker);
+                    invalid = false;
+                } catch (IndexOutOfBoundsException e) {
+                    System.out.println("Invalid number of item");
+                }
+            } while (invalid);
         }
     }
 
@@ -26,7 +34,7 @@ public class StartUI {
 
     public static void main(String[] args) {
         Output output = new ConsoleOutput();
-        Input input = new ConsoleInput();
+        Input input = new ValidateInput();
         Tracker tracker = new Tracker();
         UserAction[] actions = {
                 new CreateAction(output), new EditAction(output),
