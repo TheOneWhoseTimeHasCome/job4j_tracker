@@ -4,9 +4,10 @@ public class UserStore {
 
     public static User findUser(User[] users, String login) throws UserNotFoundException {
         User user = null;
-        for (int i = 0; i < users.length; i++) {
-            if (users[i].getUsername().equals(login)) {
-                user = users[i];
+        for (User value : users) {
+            if (value.getUsername().equals(login)) {
+                user = value;
+                break;
             }
         }
         if (user == null) {
@@ -19,7 +20,7 @@ public class UserStore {
         if (!user.isValid() || user.getUsername().length() < 3) {
             throw new UserInvalidException("Not a valid name");
         }
-        return false;
+        return true;
     }
 
     public static void main(String[] args) {
@@ -32,8 +33,10 @@ public class UserStore {
             if (validate(user)) {
                 System.out.println("This user has an access");
             }
+        } catch (UserInvalidException e) {
+            e.printStackTrace();
         } catch (UserNotFoundException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
     }
 }
