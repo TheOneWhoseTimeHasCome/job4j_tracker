@@ -11,17 +11,13 @@ public class StartUI {
         boolean run = true;
         while (run) {
             showMenu(actions);
-            boolean invalid = true;
-            do {
-                try {
-                    int select = input.askInt("Select: ");
-                    UserAction action = actions[select];
-                    run = action.execute(input, tracker);
-                    invalid = false;
-                } catch (IndexOutOfBoundsException e) {
-                    System.out.println("Invalid number of item");
+                int select = input.askInt("Select: ");
+                if (select < 0 || select >= actions.length) {
+                    out.println("Wrong input, you can select: 0 .. " + (actions.length - 1));
+                    continue;
                 }
-            } while (invalid);
+                UserAction action = actions[select];
+                run = action.execute(input, tracker);
         }
     }
 
