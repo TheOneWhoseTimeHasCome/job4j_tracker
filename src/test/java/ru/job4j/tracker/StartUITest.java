@@ -240,4 +240,15 @@ public class StartUITest {
                         + "=== Exit Program ===" + ln
         );
     }
+
+    @Test
+    public void whenInvalidInput() {
+        Output out = new StubOutput();
+        Input in = new StubInput(
+                new String[] {"one", "1"}
+        );
+        ValidateInput input = new ValidateInput(out, in);
+        int selected = input.askInt("Enter menu:");
+        assertThat(selected).isEqualTo(1);
+    }
 }
