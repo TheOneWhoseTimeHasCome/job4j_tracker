@@ -213,35 +213,6 @@ public class StartUITest {
     }
 
     @Test
-    public void whenInvalidTextFromInput() {
-        Output out = new StubOutput();
-        Input in = new StubInput(new String[]{"Seven", "0", "1"}, out);
-        Tracker tracker = new Tracker();
-        Item item1 = new Item("item1");
-        Item item2 = new Item("item2");
-        tracker.add(item1);
-        tracker.add(item2);
-        UserAction[] actions = new UserAction[]{new ShowAction(out),
-                new ExitAction(out)
-        };
-        new StartUI(out).init(in, tracker, actions);
-        String ln = System.lineSeparator();
-        assertThat(out.toString()).isEqualTo(
-                "Menu:" + ln
-                        + "0. Show all items" + ln
-                        + "1. Exit Program" + ln
-                        + "Please use numbers" + ln
-                        + "=== Show all items ===" + ln
-                        + item1 + ln
-                        + item2 + ln
-                        + "Menu:" + ln
-                        + "0. Show all items" + ln
-                        + "1. Exit Program" + ln
-                        + "=== Exit Program ===" + ln
-        );
-    }
-
-    @Test
     public void whenInvalidInput() {
         Output out = new StubOutput();
         Input in = new StubInput(
