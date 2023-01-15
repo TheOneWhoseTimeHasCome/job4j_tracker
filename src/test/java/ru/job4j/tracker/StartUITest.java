@@ -238,11 +238,11 @@ public class StartUITest {
     public void whenInputNegativeNumber() {
         Output out = new StubOutput();
         Input in = new StubInput(
-                new String[]{"-15"}
+                new String[]{"-15", "-3", "-19", "2"}
         );
         ValidateInput input = new ValidateInput(out, in);
         int selected = input.askInt("Enter menu:");
-        assertThat(selected).isEqualTo(-15);
+        assertThat(selected).isEqualTo(2);
     }
 
 }
