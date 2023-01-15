@@ -222,4 +222,27 @@ public class StartUITest {
         int selected = input.askInt("Enter menu:");
         assertThat(selected).isEqualTo(1);
     }
+
+    @Test
+    public void whenInputValidRepeatedly() {
+        Output out = new StubOutput();
+        Input in = new StubInput(
+                new String[]{"1", "2", "3"}
+        );
+        ValidateInput input = new ValidateInput(out, in);
+        int selected = input.askInt("Enter menu:");
+        assertThat(selected).isEqualTo(1);
+    }
+
+    @Test
+    public void whenInputNegativeNumber() {
+        Output out = new StubOutput();
+        Input in = new StubInput(
+                new String[]{"-15"}
+        );
+        ValidateInput input = new ValidateInput(out, in);
+        int selected = input.askInt("Enter menu:");
+        assertThat(selected).isEqualTo(-15);
+    }
+
 }
