@@ -179,7 +179,7 @@ public class StartUITest {
     }
 
     @Test
-    public void whenInvalidNumberFromInput() {
+    public void whenInvalidExit() {
         Output out = new StubOutput();
         Input in = new StubInput(
                 new String[]{"7", "0", "1"}
