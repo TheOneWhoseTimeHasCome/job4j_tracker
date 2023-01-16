@@ -232,17 +232,21 @@ public class StartUITest {
         ValidateInput input = new ValidateInput(out, in);
         int selected = input.askInt("Enter menu:");
         assertThat(selected).isEqualTo(1);
+        selected = input.askInt("Enter menu:");
+        assertThat(selected).isEqualTo(2);
+        selected = input.askInt("Enter menu:");
+        assertThat(selected).isEqualTo(3);
     }
 
     @Test
     public void whenInputNegativeNumber() {
         Output out = new StubOutput();
         Input in = new StubInput(
-                new String[]{"-15", "-3", "-19", "2"}
+                new String[]{"-15"}
         );
         ValidateInput input = new ValidateInput(out, in);
         int selected = input.askInt("Enter menu:");
-        assertThat(selected).isEqualTo(2);
+        assertThat(selected).isEqualTo(-15);
     }
 
 }
