@@ -14,9 +14,9 @@ public class PasswordValidator {
         int countSpecial = 0;
         for (int i = 0; i < password.length(); i++) {
             countUpper = Character.isUpperCase(password.charAt(i)) ? ++countUpper : countUpper;
-            countLower = Character.isLowerCase(password.charAt(i)) ? countLower + 1 : countLower;
-            countDigit = Character.isDigit(password.charAt(i)) ? countDigit + 1 : countDigit;
-            countSpecial = !Character.isLetterOrDigit(password.charAt(i)) ? countSpecial + 1 : countSpecial;
+            countLower = Character.isLowerCase(password.charAt(i)) ? ++countLower : countLower;
+            countDigit = Character.isDigit(password.charAt(i)) ? ++countDigit : countDigit;
+            countSpecial = !Character.isLetterOrDigit(password.charAt(i)) ? ++countSpecial : countSpecial;
             if (countSpecial > 0 && countDigit > 0 && countLower > 0 && countUpper > 0) {
                 break;
             }
