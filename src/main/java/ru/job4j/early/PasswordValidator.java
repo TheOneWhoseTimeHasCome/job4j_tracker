@@ -1,7 +1,6 @@
 package ru.job4j.early;
 
 public class PasswordValidator {
-    @SuppressWarnings("checkstyle:SimplifyBooleanExpression")
     public static String validate(String password) {
         if (password == null) {
             throw new IllegalArgumentException("Password can't be null");
@@ -43,11 +42,11 @@ public class PasswordValidator {
             throw new IllegalArgumentException("Password should contain at least one special symbol");
         }
         String[] words = {"qwerty", "12345", "password", "admin", "user"};
-            for (String word : words) {
-                if (password.toLowerCase().contains(word)) {
-                    throw new IllegalArgumentException("Password shouldn't contain substrings: qwerty, 12345, password, admin, user");
-                }
+        for (String word : words) {
+            if (password.toLowerCase().contains(word)) {
+                throw new IllegalArgumentException("Password shouldn't contain substrings: qwerty, 12345, password, admin, user");
             }
+        }
         return password;
     }
 }
